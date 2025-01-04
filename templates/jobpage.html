@@ -16,15 +16,25 @@
     <h3 class="mb-2">{{job.title}}</h3>
     <p class="lead mt-0">{{job.location}}</p>
     <h4>Resonsibilities</h4>
-    <ul>{% for line in job.responsibilities.split("\n") %}
-      <li>{{line}}</li>
+    <ul>
+      {% if job.responsibilities is defined and job.responsibilities %}
+      {% for line in job.responsibilities.split("\n") %}
+      <li>{{ line }}</li>
       {% endfor %}
+      {% else %}
+      <p>No responsibilities listed</p>
+      {% endif %}
     </ul>
+
     <h4>Requirements</h4>
     <ol>
+      {% if job.requirements is defined and job.requirements %}
       {% for line in job.requirements.split("\n") %}
-      <li>{{line}}</li>
+      <li>{{ line }}</li>
       {% endfor %}
+      {% else %}
+      <p>No Requirements listed</p>
+      {% endif %}
     </ol>
     <h4>Salary</h4>
     <p>{{job.currency}}{{job.salary}}</p>
