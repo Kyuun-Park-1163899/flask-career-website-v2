@@ -37,7 +37,9 @@
       {% endif %}
     </ol>
     <h4>Salary</h4>
-    <p>{{job.currency}}{{job.salary}}</p>
+    {{ job.currency if job.currency else '$' }}
+    {{ job.salary if job.salary else '-' }}
+    {% include 'application_form.html' %}
   </div>
   {% include 'footer.html' %}
 </body>
