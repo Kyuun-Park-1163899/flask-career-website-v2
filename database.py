@@ -35,7 +35,6 @@ def add_application_to_db(job_id, data):
       )
   """)
 
-  # 데이터베이스와 연결 및 트랜잭션 시작
   with engine.begin() as conn:
     conn.execute(
         query, {
